@@ -1,4 +1,3 @@
-import dotenv from "dotenv";
 // import mdFootnote from "markdown-it-footnote";
 // import { defineConfig, type HeadConfig } from 'vitepress';
 import container from "markdown-it-container";
@@ -7,8 +6,6 @@ import { renderSandbox } from "vitepress-plugin-sandpack";
 // import * as data from "../data";
 // @ts-check
 /** @type {import('vitepress').UserConfig} */
-
-dotenv.config();
 
 const SIDEBAR_DEFAULT = [
   {
