@@ -184,6 +184,14 @@ function getHeadTags(env: NodeJS.ProcessEnv): HeadConfig[] {
     ],
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:title", content: "BlockNote" }],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content:
+          "A beautiful text editor that just works. Easily add an editor to your app that users will love. Customize it with your own functionality like custom blocks or AI tooling.",
+      },
+    ],
     // ["meta", { name: "twitter:card", content: "summary_large_image" }],
     // ["meta", { name: "twitter:title", content: "BlockNote Docs" }],
     // ["meta", { name: "twitter:site", content: "@TypeCellOS" }],
