@@ -1,4 +1,3 @@
-import dotenv from "dotenv";
 // import mdFootnote from "markdown-it-footnote";
 // import { defineConfig, type HeadConfig } from 'vitepress';
 import container from "markdown-it-container";
@@ -7,8 +6,6 @@ import { renderSandbox } from "vitepress-plugin-sandpack";
 // import * as data from "../data";
 // @ts-check
 /** @type {import('vitepress').UserConfig} */
-
-dotenv.config();
 
 const SIDEBAR_DEFAULT = [
   {
@@ -184,9 +181,38 @@ function getHeadTags(env: NodeJS.ProcessEnv): HeadConfig[] {
     ],
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:title", content: "BlockNote" }],
-    // ["meta", { name: "twitter:card", content: "summary_large_image" }],
-    // ["meta", { name: "twitter:title", content: "BlockNote Docs" }],
-    // ["meta", { name: "twitter:site", content: "@TypeCellOS" }],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content:
+          "A beautiful text editor that just works. Easily add an editor to your app that users will love. Customize it with your own functionality like custom blocks or AI tooling.",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://block-note-core.vercel.app/api/og",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image:alt",
+        content: "BlockNote logo",
+      },
+    ],
+
+    [
+      "meta",
+      {
+        property: "twitter:card",
+        content: "summary_large_image",
+      },
+    ],
+    ["meta", { name: "twitter:title", content: "BlockNote" }],
+    ["meta", { name: "twitter:site", content: "@TypeCellOS" }],
   ];
 
   if (env.VITE_GTM_ID) {
