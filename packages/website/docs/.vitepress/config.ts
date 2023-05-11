@@ -1,4 +1,3 @@
-import dotenv from "dotenv";
 // import mdFootnote from "markdown-it-footnote";
 // import { defineConfig, type HeadConfig } from 'vitepress';
 import container from "markdown-it-container";
@@ -11,8 +10,6 @@ import { renderSandbox } from "vitepress-plugin-sandpack";
 // import * as data from "../data";
 // @ts-check
 /** @type {import('vitepress').UserConfig} */
-
-dotenv.config();
 
 const SIDEBAR_DEFAULT = [
   {
@@ -119,8 +116,8 @@ const METADATA_DEFAULT = {
   title: "BlockNote",
   description:
     "A beautiful text editor that just works. Easily add an editor to your app that users will love. Customize it with your own functionality like custom blocks or AI tooling.",
-  image: "https://blocknotejs.org/api/og",
-  baseUrl: "https://blocknotejs.org",
+  image: "https://block-note-core.vercel.app/api/og",
+  baseUrl: "https://block-note-core.vercel.app",
 };
 
 export default defineConfig({
