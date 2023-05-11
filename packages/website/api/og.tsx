@@ -5,10 +5,21 @@ export const config = {
   runtime: "edge",
 };
 
+const font = fetch(
+  new URL("../docs/public/fonts/gilroy-regular.woff2", import.meta.url)
+).then((res) => res.arrayBuffer());
+
 export default async function handler(request) {
+  const fontData = await font;
+
   try {
     const { searchParams } = new URL(request.url);
-    const title = searchParams.get("title")?.slice(0, 100);
+    const titleParam = searchParams.get("title");
+    const title = titleParam
+      ? titleParam.length > 100
+        ? `${titleParam.slice(0, 100)}&#x2026;`
+        : titleParam
+      : null;
 
     const iconWithTitle = (title: string) => (
       <div
@@ -99,10 +110,20 @@ export default async function handler(request) {
       </div>
     );
 
-    return new ImageResponse(title ? iconWithTitle(title) : banner, {
-      width: 1200,
-      height: 630,
-    });
+    return new ImageResponse(
+      title ? iconWithTitle(`BlockNote - ${title}`) : banner,
+      {
+        width: 1200,
+        height: 630,
+        fonts: [
+          {
+            name: "Gilroy",
+            data: fontData,
+            style: "normal",
+          },
+        ],
+      }
+    );
   } catch (e) {
     return new Response(`Failed to generate the image`, {
       status: 500,
